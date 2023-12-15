@@ -20,11 +20,9 @@ steps:
   inputs:
     containerRegistry: 'DockerHubConnection'
     command: 'login'
-
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerHubConnection'
-    repository: 'youssefkhaled5222/devops'  # Removed spaces around '/'
+    repository: 'youssefkhaled5222 / devops'
     command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-    buildContext: '**'  # Adjust based on the location of your Dockerfile
+    Dockerfile: '**/AzureDockerfile'

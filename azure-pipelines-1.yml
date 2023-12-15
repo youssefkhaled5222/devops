@@ -1,8 +1,3 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
-
 trigger:
 - master
 
@@ -20,14 +15,16 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerHubConnection'
     command: 'login'
+
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerHubConnection'
-    repository: 'youssefkhaled5222 / devops'
+    repository: 'youssefkhaled5222/devops'  # Removed spaces around '/'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-    buildContext: '**AzureDockerfile'
+    buildContext: '**'  # Adjust based on the location of your Dockerfile

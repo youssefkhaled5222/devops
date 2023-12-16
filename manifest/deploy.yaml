@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: site-deployment
   labels:
-    app: website
+    app: maven
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: website
+      app: maven
   template:
     metadata:
       labels:
-        app: website
+        app: maven
     spec:
       containers:
       - name: static-site

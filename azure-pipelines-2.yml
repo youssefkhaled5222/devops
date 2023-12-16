@@ -31,3 +31,4 @@ steps:
     repository: 'youssefkhaled5222 / devops'
     command: 'buildAndPush'
     Dockerfile: '**/AzureDockerfile'
+    tags: 'i1'

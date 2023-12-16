@@ -32,3 +32,12 @@ steps:
     command: 'buildAndPush'
     Dockerfile: '**/AzureDockerfile'
     tags: 'i1'
+- task: KubernetesManifest@1
+  inputs:
+    action: 'deploy'
+    connectionType: 'azureResourceManager'
+    azureSubscriptionConnection: 'Azure for Students(2)(f85c6d2c-629c-4db5-a3c0-fc3264a2c114)'
+    azureResourceGroup: '12th'
+    kubernetesCluster: 'project'
+    namespace: 'test'
+    manifests: './manifest/*'

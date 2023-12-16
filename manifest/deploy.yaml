@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: static-site
-        image: drwasabi0412/mywebsite:v1
+        image: youssefkhaled5222/devops:i1
         imagePullPolicy: Always
         ports:
         - containerPort: 80

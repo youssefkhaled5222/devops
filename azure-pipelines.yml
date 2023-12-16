@@ -29,7 +29,7 @@ steps:
     containerRegistry: 'DockerHubConnection'
     repository: 'youssefkhaled5222/devops'
     command: 'buildAndPush'
-    Dockerfile: '**/AzureDockerfile'
+    Dockerfile: '**/Dockerfile'
     tags: 's1'
 - task: KubernetesManifest@1
   inputs:

@@ -31,7 +31,7 @@ steps:
     repository: 'youssefkhaled5222 / devops'
     command: 'buildAndPush'
     Dockerfile: '**/AzureDockerfile'
-    tags: 'i1'
+    tags: 'r1'
 - task: KubernetesManifest@1
   inputs:
     action: 'deploy'

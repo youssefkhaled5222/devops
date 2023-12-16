@@ -28,7 +28,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerHubConnection'
-    repository: 'youssefkhaled5222 / devops'
+    repository: 'youssefkhaled5222/devops'  # Remove the space before and after '/'
     command: 'buildAndPush'
     Dockerfile: '**/AzureDockerfile'
     tags: 's1'
@@ -36,7 +36,7 @@ steps:
   inputs:
     action: 'deploy'
     connectionType: 'azureResourceManager'
-    azureSubscriptionConnection: 'Azure for Students(2)(f85c6d2c-629c-4db5-a3c0-fc3264a2c114)'
+    azureSubscriptionConnection: 'Azure for Students(2)(f85c6d2c-629c-4db5-a3c0-fc3264a2c114)'  # Use the correct service connection name
     azureResourceGroup: 'my_group'
     kubernetesCluster: 'my_cluster'
     namespace: 'dev'

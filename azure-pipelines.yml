@@ -6,6 +6,8 @@
 
 variables:
   SystemDebug: true
+  BuildNumber: $(Build.BuildNumber)
+  BuildTimestamp: $(Build.StartTimeUtc:%Y-%m-%dT%H-%M-%SZ)
 
 trigger:
 - master
@@ -31,10 +33,9 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'DockerHubConnection'
-    repository: 'youssefkhaled5222/devops'  # Remove the space before and after '/'
     command: 'buildAndPush'
     Dockerfile: '**/AzureDockerfile'
-    tags: 's1'
+    tags: 'youssefkhaled5222/devops:latest, youssefkhaled5222/devops:$(BuildNumber), youssefkhaled5222/devops:$(BuildTimestamp)'
 - task: KubernetesManifest@1
   inputs:
     action: 'deploy'

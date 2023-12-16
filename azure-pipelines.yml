@@ -28,11 +28,11 @@ steps:
     goals: 'package'
 - task: Docker@2
   inputs:
-    containerRegistry: 'DockerHubConnection'
+    containerRegistry: 'DockerConnection'
     command: 'login'
 - task: Docker@2
   inputs:
-    containerRegistry: 'DockerHubConnection'
+    containerRegistry: 'DockerConnection'
     command: 'buildAndPush'
     Dockerfile: '**/AzureDockerfile'
     tags: 'youssefkhaled5222/devops:latest, youssefkhaled5222/devops:$(BuildNumber), youssefkhaled5222/devops:$(BuildTimestamp)'

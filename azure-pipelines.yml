@@ -30,7 +30,7 @@ steps:
     containerRegistry: 'DockerHubConnection'
     repository: 'youssefkhaled5222/devops'  # Remove the space before and after '/'
     command: 'buildAndPush'
-    Dockerfile: '**/AzureDockerfile'
+    Dockerfile: '**/Dockerfile'
     tags: 's1'
 - task: KubernetesManifest@1
   inputs:

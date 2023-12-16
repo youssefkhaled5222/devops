@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: site-deployment
+  labels:
+    app: website
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: website
+  template:
+    metadata:
+      labels:
+        app: website
+    spec:
+      containers:
+      - name: static-site
+        image: drwasabi0412/mywebsite:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80

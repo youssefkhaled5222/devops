@@ -31,9 +31,6 @@ steps:
     command: 'buildAndPush'
     Dockerfile: '**/AzureDockerfile'
     tags: 's1'
-    additionalImageTags: 's1'
-    includeLatestTag: true
-    DockerBuildOptions: '--log-level=debug'
 - task: KubernetesManifest@1
   inputs:
     action: 'deploy'

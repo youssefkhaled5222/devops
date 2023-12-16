@@ -1,0 +1,43 @@
+# Maven
+
+# Build your Java project and run tests with Apache Maven.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+- master
+
+pool:
+  name: yoyo
+
+steps:
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'package'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'DockerHubConnection'
+    command: 'login'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'DockerHubConnection'
+    repository: 'youssefkhaled5222 / devops'
+    command: 'buildAndPush'
+    Dockerfile: '**/AzureDockerfile'
+    tags: 's1'
+- task: KubernetesManifest@1
+  inputs:
+    action: 'deploy'
+    connectionType: 'azureResourceManager'
+    azureSubscriptionConnection: 'Azure for Students(2)(f85c6d2c-629c-4db5-a3c0-fc3264a2c114)'
+    azureResourceGroup: 'my_group'
+    kubernetesCluster: 'my_cluster'
+    namespace: 'dev'
+    manifests: './manifest/*'

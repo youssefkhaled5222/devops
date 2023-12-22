@@ -1,11 +1,5 @@
-# Use an official Tomcat runtime as a parent image
 FROM tomcat:latest
-
-# Set the working directory in the container
-WORKDIR /usr/local/tomcat/webapps/
-
-# Copy the WAR file into the container
-COPY target/webapp.war ./
+COPY ./webapp/target/webapp.war /usr/local/tomcat/webapps
 
 # Define the command to run your application
 CMD ["catalina.sh", "run"]

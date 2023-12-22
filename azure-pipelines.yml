@@ -33,6 +33,7 @@ steps:
     command: 'buildAndPush'
     Dockerfile: 'AzureDockerfile'  
     tags: 'youssefkhaled5222/devops:r1'
+    repository: 'youssefkhaled5222/devops'
 
 #- task: KubernetesManifest@1
 #  inputs:

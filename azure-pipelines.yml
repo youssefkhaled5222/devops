@@ -34,12 +34,12 @@ steps:
     Dockerfile: 'AzureDockerfile'  # Adjust the path if needed
     tags: 'youssefkhaled5222/devops:r1'
 
-- task: KubernetesManifest@1
-  inputs:
-    action: 'deploy'
-    connectionType: 'azureResourceManager'
-    azureSubscriptionConnection: 'Azure for Students(2)(f85c6d2c-629c-4db5-a3c0-fc3264a2c114)'  # Use the correct service connection name
-    azureResourceGroup: 'my_group'
-    kubernetesCluster: 'my_cluster'
-    namespace: 'dev'
-    manifests: './manifest/*'
+#- task: KubernetesManifest@1
+#  inputs:
+#    action: 'deploy'
+#    connectionType: 'azureResourceManager'
+#    azureSubscriptionConnection: 'Azure for Students(2)(f85c6d2c-629c-4db5-a3c0-fc3264a2c114)'  # Use the correct service connection name
+#    azureResourceGroup: 'my_group'
+#    kubernetesCluster: 'my_cluster'
+#    namespace: 'dev'
+#    manifests: './manifest/*'

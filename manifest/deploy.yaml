@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: static-site
-        image: youssefkhaled5222/devops:$(Build.BuildNumber)
+        image: youssefkhaled5222/devops:s1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80

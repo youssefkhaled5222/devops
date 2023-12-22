@@ -32,7 +32,7 @@ steps:
     containerRegistry: 'DockerConnection'
     command: 'buildAndPush'
     Dockerfile: 'AzureDockerfile'  # Adjust the path if needed
-    tags: 'youssefkhaled5222/devops:s1'
+    tags: 'youssefkhaled5222/devops:r1'
 
 - task: KubernetesManifest@1
   inputs:

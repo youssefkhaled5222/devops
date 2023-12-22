@@ -32,7 +32,7 @@ steps:
     containerRegistry: 'DockerConnection'
     command: 'buildAndPush'
     Dockerfile: '**/AzureDockerfile'
-    tags: 'youssefkhaled5222/devops:latest, youssefkhaled5222/devops:$(BuildNumber), youssefkhaled5222/devops:$(BuildTimestamp)'
+    tags: 'youssefkhaled5222/devops:$(BuildNumber)'
 - task: KubernetesManifest@1
   inputs:
     action: 'deploy'

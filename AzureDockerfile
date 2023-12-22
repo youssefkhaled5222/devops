@@ -1,3 +1,24 @@
+# Use the official Tomcat image as the base image
 FROM tomcat:latest
-COPY C:/agent/_work/4/s/webapp/target/webapp.war /usr/local/tomcat/webapps
+
+# Set the working directory to Tomcat's webapps directory
+WORKDIR /usr/local/tomcat/webapps/
+
+# Copy the WAR file from the local build context to the webapps directory
+COPY target/your-webapp.war .
+
+# Optional: If you have additional configuration files, copy them as needed
+# COPY your-config-file.xml /usr/local/tomcat/conf/
+
+# Optional: If you have custom scripts or dependencies, copy them as needed
+# COPY your-scripts/ /usr/local/tomcat/bin/
+
+# Optional: If you have additional libraries, copy them to Tomcat's lib directory
+# COPY your-libraries/*.jar /usr/local/tomcat/lib/
+
+# Expose the default Tomcat port
+EXPOSE 8080
+
+# Start Tomcat
+CMD ["catalina.sh", "run"]
 

@@ -25,13 +25,13 @@ steps:
     goals: 'package'
 - task: Docker@2
   inputs:
-    containerRegistry: 'DockerConnection'
+    containerRegistry: 'dockerconnect'
     command: 'login'
 - task: Docker@2
   inputs:
-    containerRegistry: 'DockerConnection'
+    containerRegistry: 'dockerconnect'
     command: 'buildAndPush'
-    Dockerfile: 'AzureDockerfile'  # Adjust the path if needed
+    Dockerfile: 'AzureDockerfile'  
     tags: 'youssefkhaled5222/devops:r1'
 
 #- task: KubernetesManifest@1

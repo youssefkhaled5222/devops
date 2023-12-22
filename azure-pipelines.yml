@@ -33,7 +33,6 @@ steps:
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'  # Adjust the path if needed
     tags: 'youssefkhaled5222/devops:s1'
-    buildContext: '$(System.DefaultWorkingDirectory)'  # Adjust if needed
 
 - task: KubernetesManifest@1
   inputs:
